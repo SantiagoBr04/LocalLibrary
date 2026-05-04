@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Título:
+      input#title.form-control(type='text', placeholder='Título do jogo', name='title', required)
+    
+    div.form-group
+      label(for='description') Descrição:
+      textarea#description.form-control(name='description', required)
+    
+    button.btn.btn-primary(type='submit') Enviar

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') Primeiro Nome:
+      input#first_name.form-control(type='text', placeholder='Primeiro nome', name='first_name', required)
+    
+    div.form-group
+      label(for='family_name') Sobrenome:
+      input#family_name.form-control(type='text', placeholder='Sobrenome', name='family_name', required)
+    
+    button.btn.btn-primary(type='submit') Enviar

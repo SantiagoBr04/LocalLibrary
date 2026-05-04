@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(method='POST' action='')
+    div.form-group
+      label(for='book') Livro:
+      input#book.form-control(type='text', placeholder='ID do livro', name='book', required)
+    
+    div.form-group
+      label(for='status') Status:
+      select#status.form-control(name='status', required)
+        option(value='Available') Disponível
+        option(value='Maintenance') Manutenção
+        option(value='Loaned') Emprestado
+        option(value='Reserved') Reservado
+    
+    button.btn.btn-primary(type='submit') Enviar

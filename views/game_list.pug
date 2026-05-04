@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  
+  if game_list.length
+    ul
+      each game in game_list
+        li: a(href=game.url)= game.title
+  else
+    p Nenhum jogo encontrado.

@@ -1,0 +1,18 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+
+const GameSchema = new Schema({
+  title: { type: String, required: true },
+  author: { type: Schema.Types.ObjectId, ref: "Author", required: true },
+  summary: { type: String, required: true },
+});
+
+// Virtual for book's URL
+GameSchema.virtual("url").get(function () {
+  // We don't use an arrow function as we'll need the this object
+  return `/catalog/game/${this._id}`;
+});
+
+// Export model
+module.exports = mongoose.model("Game", GameSchema);

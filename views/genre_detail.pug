@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  
+  p
+    strong Nome: 
+    =genre.name
+  
+  h2 Livros
+  
+  if genre_books.length
+    ul
+      each book in genre_books
+        li: a(href=book.url)= book.title
+  else
+    p Não há livros neste gênero.

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  
+  p= book.summary
+  
+  p
+    strong Autor: 
+    a(href=book.author.url)= book.author.first_name + ' ' + book.author.family_name
+  
+  p
+    strong ISBN: 
+    =book.isbn
+  
+  p
+    strong Gêneros: 
+    each genre in book.genre
+      span
+        a(href=genre.url)= genre.name
+        | &nbsp;

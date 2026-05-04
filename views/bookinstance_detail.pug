@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  
+  p
+    strong Livro: 
+    a(href=bookinstance.book.url)= bookinstance.book.title
+  
+  p
+    strong Status: 
+    =bookinstance.status

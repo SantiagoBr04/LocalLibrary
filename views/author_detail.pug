@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  
+  p
+    strong Nome: 
+    =author.first_name + ' ' + author.family_name
+  
+  p
+    strong Data de Nascimento: 
+    =author.date_of_birth
+  
+  h2 Livros
+  
+  if author_books.length
+    ul
+      each book in author_books
+        li: a(href=book.url)= book.title
+  else
+    p Este autor não tem livros.

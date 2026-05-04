@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  
+  if book_list.length
+    ul
+      each book in book_list
+        li
+          a(href=book.url)= book.title
+          |  (
+          a(href=book.author.url)= book.author.first_name
+          |  )
+  else
+    p Nenhum livro encontrado.
