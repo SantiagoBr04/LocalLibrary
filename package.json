@@ -2,15 +2,21 @@
   "name": "locallibrary",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "dev": "node ./bin/www"
   },
   "dependencies": {
+    "compression": "^1.8.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0",
     "http-errors": "~1.6.3",
     "mongoose": "^9.3.3",
     "morgan": "~1.9.1",

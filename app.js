@@ -1,5 +1,8 @@
 var createError = require('http-errors');
 var express = require('express');
+var compression = require('compression');
+var helmet = require('helmet');
+var rateLimit = require('express-rate-limit');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -11,11 +14,19 @@ var gamesRouter = require('./routes/games');
 
 var app = express();
 
+app.set('trust proxy', 1);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+app.use(helmet());
+app.use(compression());
+app.use(rateLimit({
+  windowMs: 60 * 1000,
+  max: 20,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
